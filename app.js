@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logFmt = require('logfmt');
 var morgan = require('morgan');
-var routes = require('./routes/index.js');
+var routes = require('./server/routes/index.js');
 
 //Definir puerto:
 var server_port = process.env.PORT || 3000;
