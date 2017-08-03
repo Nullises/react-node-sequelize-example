@@ -7,12 +7,47 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logFmt = require('logfmt');
 var morgan = require('morgan');
+var routes = require('./routes/index.js');
 
 //Definir puerto:
 var server_port = process.env.PORT || 3000;
 
 //Definir aplicación:
 var app = express();
+
+//Definir middlewares:
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+//Rutas:
+app.use('/', routes);
+
+//Manejo de errores:
+//404
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+//Desarrollo
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+//Producción
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 
 //Inicializar la aplicación:
 init();
