@@ -1,20 +1,26 @@
-'use strict';
+/* jshint indent: 2 */
+
 module.exports = function(sequelize, DataTypes) {
-  var Comida = sequelize.define('Comida', {
+  return sequelize.define('comida', {
     id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            allowNull: false
-        },
-    descripcion: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-        Comida.belongsTo(models.Categoria);
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    nombre: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    categoria_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'categoria',
+        key: 'id'
       }
     }
+  }, {
+    tableName: 'comida'
   });
-  return Comida;
 };

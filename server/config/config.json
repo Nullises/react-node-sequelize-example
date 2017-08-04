@@ -3,12 +3,7 @@
     "username": "postgres",
     "password": "321321",
     "database": "react_test",
-    "host": "127.0.0.1",
-    "pool": {
-      "max": 5,
-      "min": 0,
-      "idle": 10000
-    },
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
