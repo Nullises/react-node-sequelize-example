@@ -23,7 +23,7 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 `sudo npm install -g pg@6.4.1 pg-hstore `
 
-4) Crear carpeta server y moverse hacia ella
+4) Borrar Carpeta server actual. Crear nueva carpeta server y moverse hacia ella
 
 `mkdir server`
 `cd server`
