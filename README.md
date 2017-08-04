@@ -1,7 +1,7 @@
 # react-node-sequelize-example
 ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React app through Node.js using Sequelize as ORM
 
-##INSTRUCCIONES (sudo en Ubuntu, en Windows solo npm install):
+# INSTRUCCIONES (sudo en Ubuntu, en Windows solo npm install):
 
 0) Hacer Restore de la DB:
 
@@ -23,7 +23,7 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 `sudo npm install -g pg@6.4.1 pg-hstore `
 
-4) Crear carpeta server y moverse hacia ella
+4) Borrar Carpeta server actual. Crear nueva carpeta server y moverse hacia ella
 
 `mkdir server`
 `cd server`
