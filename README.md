@@ -43,6 +43,15 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 `sequelize-auto -o "./models" -d registro -h <host> -u <usuario> -p <puerto> -x <contraseña> -e postgres`
 
-8) Levantar la App con Nodemon:
+8) Instalar Babel y Webpack Globalmente:
 
-`sudo npm run start:dev`
+`sudo npm install babel webpack webpack-dev-server -g`
+
+9) Levantar la app (cliente):
+
+`sudo npm start`
+localhost:8081
+
+10) Levantar la app (servidor) (terminal aparte):
+
+`node app.js`

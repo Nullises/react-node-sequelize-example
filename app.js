@@ -7,13 +7,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logFmt = require('logfmt');
 var morgan = require('morgan');
-var routes = require('./server/routes/index.js');
+var routes = require('./routes/index.js');
 
 //Definir puerto:
 var server_port = process.env.PORT || 3000;
 
 //Definir aplicación:
 var app = express();
+
+//Definir carpetas estáticas a usar:
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/node_modules'));
+
 
 //Definir middlewares:
 app.use(bodyParser.json());
