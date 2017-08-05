@@ -39,11 +39,9 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 `sudo npm install babel webpack webpack-dev-server -g`
 
-8) Levantar la app (cliente):
+8) Levantar la app:
 
-`sudo npm start`
-localhost:8081
+`sudo npm start-dev`
 
-9) Levantar la app (servidor) (terminal aparte):
-
-`node app.js`
+localhost:8081 (CLIENTE)
+localhost:3100 (SERVIDOR)
