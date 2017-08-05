@@ -23,25 +23,17 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 `sudo npm install -g pg@6.4.1 pg-hstore `
 
-4) Borrar Carpeta server actual. Crear nueva carpeta server y moverse hacia ella
 
-`mkdir server`
-`cd server`
-
-5) Ejecutar el siguiente comando para generar el boilerplate de Sequelize
-
-`sequelize-init`
-
-6) Cambiar variables locales de la DB en `\server\config`
+4) Cambiar variables locales de la DB en `\server\config`
 
 
-7) Instalar Globalmente Sequelize-Auto (Para generar los modelos automaticos de la DB):
+5) Instalar Globalmente Sequelize-Auto (Para generar los modelos automaticos de la DB):
 
 `sudo npm install -g sequelize-auto`
 
-7) Correr el siguiente comando para generar los modelos de la DB:
+6) Correr el siguiente comando para generar los modelos de la DB:
 
-`sequelize-auto -o "./models" -d registro -h <host> -u <usuario> -p <puerto> -x <contraseña> -e postgres`
+`sequelize-auto -o "./models" -d <nombre de la db> -h <host> -u <usuario> -p <puerto> -x <contraseña> -e postgres`
 
 8) Instalar Babel y Webpack Globalmente:
 
