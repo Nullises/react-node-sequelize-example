@@ -10,13 +10,6 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 ## INSTRUCCIONES (sudo en Ubuntu, en Windows solo npm install):
 
-0. Hacer Restore de la DB:
-
-⋅⋅* Tener instalado Postgres versión 9.5 o superior
-
-⋅⋅* Crear base de datos vacía llamada "react_test"
-
-⋅⋅* Clic derecho, "Restore", apuntar a la carpeta backup_database
 
 1. Instalar paquetes requeridos:
 
@@ -33,22 +26,17 @@ ES: App de ejemplo React sobre Node.js, utilizando Sequelize como ORM. EN: React
 
 4. Cambiar variables locales de la DB en `\server\config`
 
+5. Dentro de server correr
 
-5. Instalar Globalmente Sequelize-Auto (Para generar los modelos automaticos de la DB):
+`sequelize db:migrate`
 
-`sudo npm install -g sequelize-auto`
-
-6. Correr el siguiente comando para generar los modelos de la DB:
-
-`sequelize-auto -o "./models" -d <nombre de la db> -h <host> -u <usuario> -p <puerto> -x <contraseña> -e postgres`
-
-7. Instalar Babel y Webpack Globalmente:
+6. Instalar Babel y Webpack Globalmente:
 
 `sudo npm install babel webpack webpack-dev-server -g`
 
-8. Levantar la app:
+7. Levantar la app:
 
-`sudo npm start-dev`
+`sudo npm run start-dev`
 
 localhost:8081 (CLIENTE)
 localhost:3100 (SERVIDOR)

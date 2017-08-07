@@ -4,29 +4,29 @@ var models = require('../server/models/index');
 
 //Pagina inicial
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.json({ message: 'API Initialized!'});
 });
 
 //Ingresar Categorías
 router.post('/categoria', function(req, res) {
-  models.Categoria.create({
+  models.Categorias.create({
     nombre: req.body.nombre
   }).then(function(categoria) {
     res.json(categoria);
   });
 })
 
-//Buscar todos las Categorías
+//Buscar todas las categorias
 router.get('/getCategorias', function(req, res){
-  models.Categoria.findAll({}).then(function(getCategorias) {
+  models.Categorias.findAll({}).then(function(getCategorias) {
     res.json(getCategorias);
   });
 });
 
 
-//Buscar una sola Categoría
+//Buscar una sola categoria
 router.get('/categoria/:id', function(req, res) {
-  models.Categoria.find({
+  models.Categorias.find({
     where: {
       id: req.params.id
     }
@@ -35,9 +35,9 @@ router.get('/categoria/:id', function(req, res) {
   });
 });
 
-//Borrar un solo empleado
-router.delete('/categoria/:id', function(req, res) {
-  models.Categoria.destroy({
+//Borrar una sola categoria
+router.delete('/categoria/delete/:id', function(req, res) {
+  models.Categorias.destroy({
     where: {
       id: req.params.id
     }
@@ -46,26 +46,29 @@ router.delete('/categoria/:id', function(req, res) {
   });
 });
 
-//Ingresar Comidas
-router.post('/comida', function(req, res) {
-  models.Comida.create({
+//Ingresar comida
+router.post('/comida/post/:categoriaId', function(req, res) {
+  models.Comidas.create({
+    where: {
+      categoriaId: req.params.categoriaId
+    },
     nombre: req.body.nombre
   }).then(function(comida) {
     res.json(comida);
   });
 })
 
-//Buscar todos las Categorías
+//Buscar todos las comidas
 router.get('/getComidas', function(req, res){
-  models.Comida.findAll({}).then(function(getComidas) {
+  models.Comidas.findAll({}).then(function(getComidas) {
     res.json(getComidas);
   });
 });
 
 
-//Buscar una sola Categoría
-router.get('/comida/:id', function(req, res) {
-  models.Comida.find({
+//Buscar una sola comida
+router.get('/comida/get/:id', function(req, res) {
+  models.Comidas.find({
     where: {
       id: req.params.id
     }
@@ -74,9 +77,9 @@ router.get('/comida/:id', function(req, res) {
   });
 });
 
-//Borrar un solo empleado
-router.delete('/comida/:id', function(req, res) {
-  models.Comida.destroy({
+//Borrar una sola comida
+router.delete('/comida/delete/:id', function(req, res) {
+  models.Comidas.destroy({
     where: {
       id: req.params.id
     }

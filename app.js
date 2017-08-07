@@ -8,13 +8,17 @@ var bodyParser = require('body-parser');
 var logFmt = require('logfmt');
 var morgan = require('morgan');
 var routes = require('./routes/index.js');
-var router = express.Router();
 
 //Definir puerto:
 var server_port = process.env.PORT || 3000;
 
 //Definir aplicación:
 var app = express();
+
+//Definir motor de templates:
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 
 //Definir carpetas estáticas a usar:
 app.use(express.static(path.join(__dirname, 'public')));
@@ -39,10 +43,7 @@ app.use(function(req, res, next) {
 
 
 //Rutas:
-router.get('/', function(req, res) {
- res.json({ message: 'API Initialized!'});
-});
-app.use('/api', router);
+app.use('/', routes);
 
 //Manejo de errores:
 //404
